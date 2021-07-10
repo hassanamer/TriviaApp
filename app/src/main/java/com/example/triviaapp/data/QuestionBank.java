@@ -30,8 +30,7 @@ public class QuestionBank {
                     arrayQuestion.add(question);
                 } catch (JSONException e) {
                     e.printStackTrace();
-                }
-            }
+                } }
                 if (null != callBack) callBack.processFinished(arrayQuestion);}
         }, new Response.ErrorListener() {
             @Override
