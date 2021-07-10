@@ -39,6 +39,5 @@ public class QuestionBank {
             }
         });
         AppController.getmInstance().getRequestQueue().add(jsonArrayRequest);
-        return arrayQuestion;
-    }
+        return arrayQuestion; }
 }
