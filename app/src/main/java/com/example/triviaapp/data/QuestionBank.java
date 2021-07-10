@@ -25,11 +25,9 @@ public class QuestionBank {
             for(int i = 0 ; i < response.length() ; i++){
                 Question question = new Question();
                 try {
-
                     question.setQuestion(response.getJSONArray(i).get(0).toString());
                     question.setTrue(response.getJSONArray(i).getBoolean(1));
                     arrayQuestion.add(question);
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

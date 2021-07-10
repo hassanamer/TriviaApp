@@ -65,12 +65,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.nextBtn:
                 currentIndex = (currentIndex + 1) % questionArrayList.size();
                 updateQuestion();
+                setQuestionTv();
                 break;
 
             case R.id.backBtn:
                 if (currentIndex > 0) {
                     currentIndex = (currentIndex - 1) % questionArrayList.size();
                     updateQuestion(); }
+                else{
+                    Toast.makeText(MainActivity.this,"No Back Questions..... GO Ahead",Toast.LENGTH_SHORT).show();
+                }
+                setQuestionTv();
                 break;
         }
 
@@ -84,10 +89,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         boolean correctAnswer = questionArrayList.get(currentIndex).isTrue();
         if(userChoosen == correctAnswer){
             toastMessage = R.string.correct_answer;
+            if (userChoosen == true){
+                trueBtn.setVisibility(View.VISIBLE);
+                falseBtn.setVisibility(View.INVISIBLE);
+            }else{
+                trueBtn.setVisibility(View.INVISIBLE);
+                falseBtn.setVisibility(View.VISIBLE);
+            }
         }else{
             toastMessage = R.string.wrong_answer;
         }
         Toast.makeText(MainActivity.this, toastMessage , Toast.LENGTH_SHORT).show();
+    }
+
+    public void setQuestionTv(){
+        trueBtn.setVisibility(View.VISIBLE);
+        falseBtn.setVisibility(View.VISIBLE);
     }
 
 }
